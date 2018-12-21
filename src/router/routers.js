@@ -49,36 +49,6 @@ export default [
     ]
   },
   {
-    path: '/farm',
-    name: 'farm', // 农场管理
-    meta: {
-      access: ['super_admin'],
-      title: '农场',
-      icon: 'ios-globe'
-    },
-    component: Main, // 一级目录必须使用Main组件作为component
-    children: [
-      {
-        path: '/farm/manage',
-        name: 'farm_manage',
-        meta: {
-          icon: 'logo-buffer',
-          title: '农场管理'
-        },
-        component: () => import('@/view/basic.vue')
-      },
-      {
-        path: '/farm/add',
-        name: 'farm_add',
-        meta: {
-          icon: 'ios-easel',
-          title: '新增农场'
-        },
-        component: () => import('@/view/basic.vue')
-      }
-    ]
-  },
-  {
     path: '/equipment',
     name: 'equipment', // 设备管理
     meta: {

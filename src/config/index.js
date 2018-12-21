@@ -17,7 +17,7 @@ export default {
    * @description api请求基础路径
    */
   baseUrl: {
-    dev: 'http://127.0.0.1:9091/basic/api/',
+    dev: 'http://127.0.0.1:8787/basic/api/',
     pro: 'https://wxapi.yeetong.cn/basic/api/'
   },
   /**
