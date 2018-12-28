@@ -49,21 +49,129 @@ export default [
     ]
   },
   {
-    path: '/equipment',
-    name: 'equipment', // 设备管理
+    path: '/map',
+    name: 'map', // 地图
     meta: {
       access: ['super_admin'],
-      title: '设备',
-      icon: 'ios-settings'
+      title: '地图',
+      icon: 'ios-map-outline'
     },
     component: Main, // 一级目录必须使用Main组件作为component
     children: [
       {
-        path: '/equipment/manage',
-        name: 'equipment_manage',
+        path: '/powerstation/map',
+        name: 'powerstation_map',
         meta: {
           icon: 'ios-settings',
-          title: '设备管理'
+          title: '电站地图'
+        },
+        component: () => import('@/view/basic.vue')
+      }
+    ]
+  },
+  {
+    path: '/powerstation',
+    name: 'powerstation_manage', // 电站管理
+    meta: {
+      access: ['super_admin'],
+      title: '电站管理',
+      icon: 'ios-compass-outline'
+    },
+    component: Main, // 一级目录必须使用Main组件作为component
+    children: [
+      {
+        path: '/powerstation/list',
+        name: 'powerstation_list',
+        meta: {
+          icon: 'ios-settings',
+          title: '电站列表'
+        },
+        component: () => import('@/view/table/index.vue')
+      },
+      {
+        path: '/equipment/list',
+        name: 'equipment_list',
+        meta: {
+          icon: 'ios-settings',
+          title: '设备列表'
+        },
+        component: () => import('@/view/basic.vue')
+      }
+    ]
+  },
+  {
+    path: '/report',
+    name: 'powerstation_report',
+    meta: {
+      access: ['super_admin'],
+      title: '电站报表',
+      icon: 'ios-compass-outline'
+    },
+    component: Main, // 一级目录必须使用Main组件作为component
+    children: [
+      {
+        path: '/report/day',
+        name: 'report_day',
+        meta: {
+          icon: 'ios-settings',
+          title: '电站日报表'
+        },
+        component: () => import('@/view/basic.vue')
+      },
+      {
+        path: '/report/month',
+        name: 'report_month',
+        meta: {
+          icon: 'ios-settings',
+          title: '电站月报表'
+        },
+        component: () => import('@/view/basic.vue')
+      },
+      {
+        path: '/report/year',
+        name: 'report_year',
+        meta: {
+          icon: 'ios-settings',
+          title: '电站年报表'
+        },
+        component: () => import('@/view/basic.vue')
+      }
+    ]
+  },
+  {
+    path: '/maintenance',
+    name: 'powerstation_maintenance',
+    meta: {
+      access: ['super_admin'],
+      title: '电站运维',
+      icon: 'ios-compass-outline'
+    },
+    component: Main, // 一级目录必须使用Main组件作为component
+    children: [
+      {
+        path: '/maintenance/manage',
+        name: 'maintenance_manage',
+        meta: {
+          icon: 'ios-settings',
+          title: '运维管理'
+        },
+        component: () => import('@/view/basic.vue')
+      },
+      {
+        path: '/maintenance/fault',
+        name: 'fault_manage',
+        meta: {
+          icon: 'ios-settings',
+          title: '故障管理'
+        },
+        component: () => import('@/view/basic.vue')
+      },
+      {
+        path: '/maintenance/workorder',
+        name: 'workorder_manage',
+        meta: {
+          icon: 'ios-settings',
+          title: '工单管理'
         },
         component: () => import('@/view/basic.vue')
       }
@@ -94,6 +202,36 @@ export default [
         meta: {
           icon: 'ios-lock',
           title: '权限管理'
+        },
+        component: () => import('@/view/basic.vue')
+      }
+    ]
+  },
+  {
+    path: '/basicinfo',
+    name: 'basicinfo', // 基础信息
+    meta: {
+      access: ['super_admin'],
+      title: '基础信息',
+      icon: 'ios-settings'
+    },
+    component: Main, // 一级目录必须使用Main组件作为component
+    children: [
+      {
+        path: '/basicinfo/area',
+        name: 'area_manage',
+        meta: {
+          icon: 'ios-settings',
+          title: '区域管理'
+        },
+        component: () => import('@/view/basic.vue')
+      },
+      {
+        path: '/basicinfo/conversion',
+        name: 'conversion_manage',
+        meta: {
+          icon: 'ios-settings',
+          title: '基础换算'
         },
         component: () => import('@/view/basic.vue')
       }

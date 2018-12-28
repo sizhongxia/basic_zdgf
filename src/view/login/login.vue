@@ -6,6 +6,9 @@
   <div class="login">
     <div class="login-con">
       <Card icon="log-in" :title="$t('login_card_title')" :bordered="false">
+        <a href="#" slot="extra">
+          <language v-if="$config.useI18n" @on-lang-change="setLocal" style="margin-right: 10px;" :lang="local"/>
+        </a>
         <div class="form-con">
           <login-form @on-success-valid="handleSubmit"></login-form>
           <p class="login-tip">{{$t('login_tip')}}</p>
@@ -17,12 +20,22 @@
 
 <script>
 import LoginForm from '_c/login-form'
-import { mapActions } from 'vuex'
+import Language from '_c/main/components/language'
+import { mapMutations, mapActions } from 'vuex'
 export default {
   components: {
-    LoginForm
+    LoginForm,
+    Language
+  },
+  computed: {
+    local () {
+      return this.$store.state.app.local
+    }
   },
   methods: {
+    ...mapMutations([
+      'setLocal'
+    ]),
     ...mapActions([
       'handleLogin'
     ]),
@@ -39,10 +52,13 @@ export default {
         })
       })
     }
+  },
+  mounted () {
+    // var b = true
+    // setInterval(() => {
+    //   this.$i18n.locale = b ? 'en-US' : 'zh-CN'
+    //   b = !b
+    // }, 1000)
   }
 }
 </script>
-
-<style>
-
-</style>
